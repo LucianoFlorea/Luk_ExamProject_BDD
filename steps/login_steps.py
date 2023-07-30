@@ -8,6 +8,12 @@ def step_impl(context):
     context.login_page = Login_page()
     context.login_page.open_login_page()
 
+@when('I enter my username "Admin" and password "admin123"')
+def step_impl(context):
+    # Implement the logic to enter the valid credentials
+    context.login_page.insert_username("Admin")
+    context.login_page.insert_password("admin123")
+
 @when('I enter my username "{username}" and the password "{password}"')
 def step_impl(context, username, password):
     context.login_page.insert_username(username)
