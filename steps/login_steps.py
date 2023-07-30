@@ -1,10 +1,7 @@
 from behave import *
-from behave import step
 from pages.login_page import Login_page
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 @given("I am on the login page")
 def step_impl(context):
