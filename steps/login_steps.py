@@ -8,7 +8,7 @@ def step_impl(context):
     context.login_page = Login_page()
     context.login_page.open_login_page()
 
-@when(' I enter my username "{username}" and the password "{password}"')
+@when('I enter my username "{username}" and the password "{password}"')
 def step_impl(context, username, password):
     context.login_page.insert_username(username)
     context.login_page.insert_password(password)
@@ -24,3 +24,4 @@ def step_impl(context):
 @then('I should receive the error message "{error_message}"')
 def step_impl(context, error_message):
     context.login_page.check_login_error_message(error_message)
+

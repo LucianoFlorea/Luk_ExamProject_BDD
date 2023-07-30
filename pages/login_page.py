@@ -10,7 +10,7 @@ class Login_page(base_page.BasePage):
     USERNAME = (By.XPATH, "//input[@placeholder='Username']")
     PASSWORD = (By.XPATH, "//input[@placeholder='Password']")
     LOGIN_BTN = (By.XPATH, "//button[@type='submit']")
-    ERROR_MSG = (By.XPATH, "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")
+    ERROR_MSG = (By.CSS_SELECTOR, ".oxd-text.oxd-text--p.oxd-alert-content-text")
 
     def open_login_page(self):
         self.chrome.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
