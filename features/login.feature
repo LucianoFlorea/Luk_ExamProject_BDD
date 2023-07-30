@@ -11,12 +11,12 @@ Background:
 
   @fail
   Scenario Outline: Login with invalid credentials
-    When I enter an invalid username "<username>" and the password "<password>"
+    When I enter my username "<username>" and the password "<password>"
     When I click on the login button
     Then I should receive the error message "<error_message>"
 
     Examples:
       |username             |password   |error_message|
-      |Admin                |wrong_pass |Datele de autentificare sunt gresite sau contul este dezactivat. Te rugam sa reincerci.
-      |wrong_user@google.com|admin123   |Datele de autentificare sunt gresite sau contul este dezactivat. Te rugam sa reincerci.
-      |wrong_user@google.com|wrong_pass |Datele de autentificare sunt gresite sau contul este dezactivat. Te rugam sa reincerci.
+      |Admin                |wrong_pass |Invalid credentials
+      |wrong_user@google.com|admin123   |Invalid credentials
+      |wrong_user@google.com|wrong_pass |Invalid credentials
