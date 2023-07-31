@@ -5,16 +5,9 @@ from pages.login_page import Login_page
 
 @given("I am on the login page")
 def step_impl(context):
-    context.login_page = Login_page()
     context.login_page.open_login_page()
 
-@when('I enter my username "Admin" and password "admin123"')
-def step_impl(context):
-    # Implement the logic to enter the valid credentials
-    context.login_page.insert_username("Admin")
-    context.login_page.insert_password("admin123")
-
-@when('I enter my username "{username}" and the password "{password}"')
+@when('I enter my username "{username}" and password "{password}"')
 def step_impl(context, username, password):
     context.login_page.insert_username(username)
     context.login_page.insert_password(password)
@@ -26,6 +19,15 @@ def step_impl(context):
 @then('I should be logged in')
 def step_impl(context):
     context.login_page.check_successful_login()
+
+@when('I click on logout button')
+def step_impl(context):
+    context.login_page.logout()
+
+@then('I should be logged out')
+def step_impl(context):
+    context.login_page.check_successful_logout()
+
 
 @then('I should receive the error message "{error_message}"')
 def step_impl(context, error_message):
