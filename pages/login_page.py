@@ -1,9 +1,6 @@
 import base_page
 from selenium.webdriver.common.by import By
 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 class Login_page(base_page.BasePage):
     USERNAME = (By.XPATH, "//input[@placeholder='Username']")
     PASSWORD = (By.XPATH, "//input[@placeholder='Password']")
@@ -28,9 +25,6 @@ class Login_page(base_page.BasePage):
 
     def check_login_error_message(self, expected_result):
         self.check_error_message(self.ERROR_MSG, expected_result, "error: the failed login message is not displayed")
-    # def check_login_error_message(self, expected_result):
-    #     error_message = "error: the failed login message is not displayed"
-    #     self.check_error_message(self.ERROR_MSG, expected_result, error_message)
 
     def logout(self):
         self.chrome.find_element(*self.USER_ARROW).click()
