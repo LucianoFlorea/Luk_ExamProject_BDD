@@ -2,6 +2,8 @@ import base_page
 from selenium.webdriver.common.by import By
 
 class Login_page(base_page.BasePage):
+    username = "Admin"
+    password = "admin123"
     USERNAME = (By.XPATH, "//input[@placeholder='Username']")
     PASSWORD = (By.XPATH, "//input[@placeholder='Password']")
     LOGIN_BTN = (By.XPATH, "//button[@type='submit']")
@@ -18,6 +20,13 @@ class Login_page(base_page.BasePage):
         self.chrome.find_element(*self.PASSWORD).send_keys(password)
     def click_login_btn(self):
         self.chrome.find_element(*self.LOGIN_BTN).click()
+
+    def signin(self):
+        self.open_login_page()
+        self.insert_username(self.username)
+        self.insert_password(self.password)
+        self.click_login_btn()
+
 
     def check_successful_login(self):
         self.check_link("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index", "error: I was not logged in")
